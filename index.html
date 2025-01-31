@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Epatazh – Спокуса в деталях</title>
+
+    <!-- Підключення Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+
+    <!-- Підключення бібліотеки для плавного скролінгу -->
+    <script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.polyfills.min.js"></script>
+
+    <!-- Підключення Font Awesome (Вибір однієї версії) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -17,10 +19,31 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <!-- Мета-теги для SEO -->
+    <meta
+      name="description"
+      content="Epatazh - магазин жіночої білизни в Калуші. Пропонуємо якісну, стильну та елегантну білизну для кожної жінки. 20 років досвіду в індустрії моди."
+    />
+    <meta
+      name="keywords"
+      content="магазин білизни, жіноча білизна, естетика, стиль, комфорт, якість білизни, магазин Калуш, вишуканість білизни, елегантність, індивідуальність, сучасні тренди, Калуш, Івано-Франківськ, Львів, Україна"
+    />
+    <meta name="robots" content="index, follow" />
+
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
       rel="stylesheet"
     />
+
+    <!-- Підключення шрифтів -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Підключення стилів -->
+    <link rel="stylesheet" href="styles.css" />
 
     <style>
       body {
@@ -28,9 +51,36 @@
         scroll-behavior: smooth;
       }
     </style>
+    <style>
+      /* Анімація для появи меню */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateX(100%);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Додаємо клас анімації */
+      .fadeIn {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+
+      /* Плавна анімація для меню */
+      .translate-x-full {
+        transform: translateX(100%);
+      }
+
+      .translate-x-0 {
+        transform: translateX(0);
+      }
+    </style>
   </head>
   <body
-    class="bg-black text-white"
+    class="bg-black text-white scroll-smooth"
     data-aos-easing="ease-in-out"
     data-aos-duration="1000"
     data-aos-delay="0"
@@ -56,10 +106,12 @@
       >
         <a href="#" class="text-white text-2xl font-extrabold">Epatazh</a>
         <div class="space-x-6 hidden md:flex">
+          <a href="#about" class="text-white hover:text-gray-300"
+            >Про магазин</a
+          >
           <a href="#catalog" class="text-white hover:text-gray-300"
             >Топові моделі</a
           >
-          <a href="#about" class="text-white hover:text-gray-300">Про бренд</a>
           <a href="#advantages" class="text-white hover:text-gray-300"
             >Переваги</a
           >
@@ -68,23 +120,42 @@
           >
         </div>
         <!-- Кнопка для мобільного меню -->
-        <button id="mobile-menu-button" class="md:hidden text-white">
-          <i class="fas fa-bars"></i>
+        <button
+          id="mobile-menu-button"
+          class="md:hidden text-white text-3xl relative z-60"
+        >
+          <i class="fas fa-bars" id="menu-icon"></i>
           <!-- Іконка меню для мобільних -->
         </button>
       </nav>
     </header>
 
-    <!-- Меню для мобільних -->
-    <div
+    <!-- Меню для мобільних (плавне з'явлення) -->
+    <aside
       id="mobile-menu"
-      class="md:hidden absolute top-16 left-0 w-full bg-red-700 p-4 hidden"
+      class="md:hidden fixed inset-0 bg-red-700 bg-opacity-70 z-50 hidden"
     >
-      <a href="#catalog" class="block text-white py-2">Топові моделі</a>
-      <a href="#about" class="block text-white py-2">Про бренд</a>
-      <a href="#advantages" class="block text-white py-2">Переваги</a>
-      <a href="#store" class="block text-white py-2">Наш магазин</a>
-    </div>
+      <!-- Кнопка закриття меню -->
+      <button
+        id="close-menu-button"
+        class="text-white text-3xl absolute top-4 right-4 z-60"
+      >
+        <i class="fas fa-times" id="close-icon"></i>
+      </button>
+      <div
+        class="w-72 bg-red-700 h-full p-6 transition-transform transform translate-x-full animated"
+        id="menu-content"
+      >
+        <a href="#catalog" class="block text-white text-2xl py-2"
+          >Топові моделі</a
+        >
+        <a href="#about" class="block text-white text-2xl py-2">Про бренд</a>
+        <a href="#advantages" class="block text-white text-2xl py-2"
+          >Переваги</a
+        >
+        <a href="#store" class="block text-white text-2xl py-2">Наш магазин</a>
+      </div>
+    </aside>
 
     <!-- Hero Section -->
     <section
@@ -108,8 +179,10 @@
 
     <!-- Про бренд -->
     <section
-      class="py-16 px-6 text-center bg-black text-white"
+      id="about"
+      class="py-16 px-12 text-center bg-black text-white"
       data-aos="fade-right"
+      data-keywords="магазин білизни, жіноча білизна, естетика, стиль, комфорт, якість білизни, магазин Калуш, вишуканість білизни, елегантність, індивідуальність, сучасні тренди, якісна білизна"
     >
       <div class="max-w-4xl mx-auto">
         <h2
@@ -151,7 +224,9 @@
 
     <!-- Топові моделі -->
     <section id="catalog" class="py-16 text-center">
-      <h2 class="text-4xl font-extrabold text-white mb-8">Топові моделі</h2>
+      <h2 class="text-4xl font-extrabold text-white mb-8 pt-12">
+        Топові моделі
+      </h2>
       <div
         class="grid grid-cols-1 md:grid-cols-3 gap-8 px-6"
         data-aos="fade-up"
@@ -202,8 +277,11 @@
     </section>
 
     <!-- Переваги -->
-    <section class="py-16 text-center bg-black text-white">
-      <h2 class="text-4xl font-extrabold text-white mb-12" data-aos="fade-up">
+    <section class="py-16 text-center bg-black text-white" id="advantages">
+      <h2
+        class="text-4xl font-extrabold text-white mb-12 pt-12"
+        data-aos="fade-up"
+      >
         Переваги магазину
       </h2>
       <div
@@ -266,8 +344,8 @@
     </section>
 
     <!-- Карта з місцем магазину -->
-    <section class="py-16" data-aos="fade-up">
-      <h2 class="text-4xl font-extrabold text-center text-white mb-8">
+    <section class="py-16" data-aos="fade-up" id="store">
+      <h2 class="text-4xl font-extrabold text-center text-white mb-8 pt-12">
         Наше місцезнаходження
       </h2>
       <div
@@ -297,7 +375,7 @@
         >
           <div class="flex justify-center items-center mb-4">
             <img
-              src="assets/Знімок екрана 2025-01-31 о 11.52.31.png"
+              src="assets/Знімок екрана 2025-01-31 о 13.18.53.png"
               alt="Клієнт 1"
               class="rounded-full w-16 h-16 mx-auto border-4 border-red-500"
             />
@@ -314,7 +392,7 @@
         >
           <div class="flex justify-center items-center mb-4">
             <img
-              src="assets/Знімок екрана 2025-01-31 о 11.52.31.png"
+              src="assets/Знімок екрана 2025-01-31 о 13.18.53.png"
               alt="Клієнт 2"
               class="rounded-full w-16 h-16 mx-auto border-4 border-red-500"
             />
@@ -329,7 +407,7 @@
         >
           <div class="flex justify-center items-center mb-4">
             <img
-              src="assets/Знімок екрана 2025-01-31 о 11.52.31.png"
+              src="assets/Знімок екрана 2025-01-31 о 13.18.53.png"
               alt="Клієнт 3"
               class="rounded-full w-16 h-16 mx-auto border-4 border-red-500"
             />
@@ -346,7 +424,7 @@
         >
           <div class="flex justify-center items-center mb-4">
             <img
-              src="assets/Знімок екрана 2025-01-31 о 11.52.31.png"
+              src="assets/Знімок екрана 2025-01-31 о 13.18.53.png"
               alt="Клієнт 4"
               class="rounded-full w-16 h-16 mx-auto border-4 border-red-500"
             />
@@ -430,7 +508,7 @@
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- CTA
     <section class="py-16 text-center bg-black text-white" data-aos="fade-down">
       <h2 class="text-3xl font-bold">Отримай знижку -10%</h2>
       <p class="mt-2">Підпишись на новинки та акції</p>
@@ -444,10 +522,10 @@
           Підписатися
         </button>
       </form>
-    </section>
+    </section> -->
 
     <!-- Слідкуйте за нами в соц мережах -->
-    <section class="py-12 text-center">
+    <section class="py-12 text-center" data-aos="fade-up">
       <div class="bg-white shadow-lg rounded-lg p-8 max-w-4xl mx-auto">
         <h2 class="text-3xl font-bold mb-6 text-[#8B0000]">
           Слідкуйте за нами в соц мережах
@@ -470,12 +548,18 @@
           >
             <i class="fab fa-facebook"></i> Facebook
           </a>
+          <a
+            href="#"
+            class="text-[#8B0000] hover:text-[#ff2b5d] transition-colors text-2xl p-3 hover:scale-110 transform duration-300"
+          >
+            <i class="fab fa-tiktok"></i> TikTok
+          </a>
         </div>
       </div>
     </section>
 
     <!-- Додайте відгук -->
-    <section class="py-12 text-center">
+    <section class="py-12 text-center" data-aos="fade-up">
       <div class="bg-white shadow-lg rounded-lg p-8 max-w-4xl mx-auto">
         <h2 class="text-3xl font-bold mb-6 text-[#8B0000]">Додайте відгук</h2>
         <p class="text-lg mb-8 text-gray-700">
@@ -539,52 +623,135 @@
     <!-- Контакти -->
     <footer
       class="py-12 bg-[#8B0000] text-center text-white"
+      style="font-family: 'Montserrat', sans-serif"
       data-aos="fade-up"
     >
-      <h2 class="text-4xl font-bold mb-6">Контакти</h2>
-      <p class="mt-2 text-lg md:text-xl">
-        📞 +380 12 345 67 89 | 📧 info@epatazh.com
-      </p>
-      <p class="mt-2 text-lg md:text-xl">📍 Доставка по Україні</p>
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold mb-6">Контакти</h2>
+        <p class="mt-2 text-lg md:text-xl">
+          📞 +380 12 345 67 89 | 📧 info@epatazh.com
+        </p>
+        <p class="mt-2 text-lg md:text-xl">📍 Доставка по Україні</p>
 
-      <!-- Соціальні мережі -->
-      <div class="mt-8 flex justify-center gap-12">
-        <a
-          href="#"
-          class="text-white hover:text-yellow-400 transition-colors text-2xl p-2 hover:scale-110 transform duration-300"
-        >
-          <i class="fab fa-instagram"></i> Instagram
-        </a>
-        <a
-          href="#"
-          class="text-white hover:text-blue-400 transition-colors text-2xl p-2 hover:scale-110 transform duration-300"
-        >
-          <i class="fab fa-facebook"></i> Facebook
-        </a>
-        <a
-          href="#"
-          class="text-white hover:text-sky-500 transition-colors text-2xl p-2 hover:scale-110 transform duration-300"
-        >
-          <i class="fab fa-twitter"></i> Twitter
-        </a>
-      </div>
+        <!-- Соціальні мережі -->
+        <div class="mt-8 flex justify-center gap-12">
+          <a
+            href="#"
+            class="text-white hover:text-yellow-400 transition-colors text-2xl p-2 hover:scale-110 transform duration-300"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+          <a
+            href="#"
+            class="text-white hover:text-blue-400 transition-colors text-2xl p-2 hover:scale-110 transform duration-300"
+            aria-label="Facebook"
+          >
+            <i class="fab fa-facebook"></i> Facebook
+          </a>
+          <a
+            href="#"
+            class="text-white hover:text-sky-500 transition-colors text-2xl p-2 hover:scale-110 transform duration-300"
+            aria-label="Twitter"
+          >
+            <i class="fab fa-twitter"></i> Twitter
+          </a>
+        </div>
 
-      <div class="mt-8">
-        <p class="text-sm text-gray-200">© 2025 Epatazh. Всі права захищені.</p>
+        <div class="mt-8">
+          <p class="text-sm text-gray-200">
+            © 2025 Epatazh. Всі права захищені.
+          </p>
+        </div>
       </div>
     </footer>
 
-    <script>
-      // Отримуємо кнопку меню та мобільне меню
-      const menuButton = document.querySelector("#mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
+    <!-- Підключення шрифтів -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
-      // Додаємо подію для кліку на кнопку
-      menuButton.addEventListener("click", () => {
-        // Перемикаємо клас 'hidden' для мобільного меню
-        mobileMenu.classList.toggle("hidden");
+    <!-- Підключення шрифтів -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Підключення шрифтів -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Ініціалізація AOS -->
+    <script>
+      AOS.init({
+        duration: 1000,
+        easing: "ease-in-out",
+        once: true,
       });
     </script>
+
+    <!-- Ініціалізація Smooth Scroll -->
+    <script>
+      // Ініціалізація бібліотеки для плавного скролінгу
+      var scroll = new SmoothScroll('a[href*="#"]', {
+        speed: 800, // Тривалість анімації
+        offset: 50, // Відстань, яку потрібно додати для коректного позиціонування
+        easing: "easeInOutCubic", // Тип анімації
+      });
+    </script>
+
+    <!-- JavaScript для мобільного меню -->
+    <script>
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const menuContent = document.getElementById("menu-content");
+      const menuIcon = document.getElementById("menu-icon");
+      const closeMenuButton = document.getElementById("close-menu-button");
+      const closeIcon = document.getElementById("close-icon");
+
+      mobileMenuButton.addEventListener("click", () => {
+        // Перевіряємо, чи меню відкрите чи закрите
+        const isMenuOpen = !mobileMenu.classList.contains("hidden");
+
+        if (isMenuOpen) {
+          // Якщо меню відкрито, закриваємо його
+          mobileMenu.classList.add("hidden");
+          menuContent.classList.add("translate-x-full");
+          menuContent.classList.remove("translate-x-0");
+          menuContent.classList.remove("fadeIn");
+
+          // Зміна іконки з хрестика на гамбургер
+          menuIcon.classList.add("fa-bars");
+          menuIcon.classList.remove("fa-times");
+        } else {
+          // Якщо меню закрите, відкриваємо його
+          mobileMenu.classList.remove("hidden");
+          menuContent.classList.remove("translate-x-full");
+          menuContent.classList.add("translate-x-0");
+          menuContent.classList.add("fadeIn");
+
+          // Зміна іконки з гамбургерного меню на хрестик
+          menuIcon.classList.add("fa-times");
+          menuIcon.classList.remove("fa-bars");
+        }
+      });
+
+      // Обробка кліку на кнопку закриття меню
+      closeMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        menuContent.classList.add("translate-x-full");
+        menuContent.classList.remove("translate-x-0");
+        menuContent.classList.remove("fadeIn");
+
+        // Зміна іконки з хрестика на гамбургер
+        menuIcon.classList.add("fa-bars");
+        menuIcon.classList.remove("fa-times");
+      });
+    </script>
+
     <script>
       // Отримуємо елемент навбару
       const navbar = document.getElementById("navbar");
