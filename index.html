@@ -104,33 +104,43 @@
       <nav
         class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center"
       >
-        <a href="#" class="text-white text-2xl font-extrabold">Epatazh</a>
-        <div class="space-x-6 hidden md:flex">
-          <a href="#about" class="text-white hover:text-gray-300"
+        <!-- Логотип -->
+        <a href="#" class="flex-shrink-0">
+          <img
+            src="assets/IMAGE_2025-01-31_15_42_11-removebg-preview.png"
+            alt="Epatazh Logo"
+            class="h-16 w-auto md:h-20 lg:h-24"
+            style="padding-top: 12px;"
+          />
+        </a>
+
+        <!-- Десктопне меню -->
+        <div class="hidden md:flex space-x-6">
+          <a href="#about" class="text-white hover:text-gray-300 text-lg"
             >Про магазин</a
           >
-          <a href="#catalog" class="text-white hover:text-gray-300"
+          <a href="#catalog" class="text-white hover:text-gray-300 text-lg"
             >Топові моделі</a
           >
-          <a href="#advantages" class="text-white hover:text-gray-300"
+          <a href="#advantages" class="text-white hover:text-gray-300 text-lg"
             >Переваги</a
           >
-          <a href="#store" class="text-white hover:text-gray-300"
+          <a href="#store" class="text-white hover:text-gray-300 text-lg"
             >Наш магазин</a
           >
         </div>
-        <!-- Кнопка для мобільного меню -->
+
+        <!-- Кнопка мобільного меню -->
         <button
           id="mobile-menu-button"
-          class="md:hidden text-white text-3xl relative z-60"
+          class="md:hidden text-white text-3xl z-60"
         >
           <i class="fas fa-bars" id="menu-icon"></i>
-          <!-- Іконка меню для мобільних -->
         </button>
       </nav>
     </header>
 
-    <!-- Меню для мобільних (плавне з'явлення) -->
+    <!-- Мобільне меню (плавне з'явлення) -->
     <aside
       id="mobile-menu"
       class="md:hidden fixed inset-0 bg-red-700 bg-opacity-70 z-50 hidden"
@@ -142,9 +152,10 @@
       >
         <i class="fas fa-times" id="close-icon"></i>
       </button>
+
       <div
-        class="w-72 bg-red-700 h-full p-6 transition-transform transform translate-x-full animated"
         id="menu-content"
+        class="w-72 bg-red-700 h-full p-6 transition-transform transform translate-x-full animated"
       >
         <a href="#catalog" class="block text-white text-2xl py-2"
           >Топові моделі</a
