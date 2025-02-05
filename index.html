@@ -110,7 +110,7 @@
             src="assets/IMAGE_2025-01-31_15_42_11-removebg-preview.png"
             alt="Epatazh Logo"
             class="h-16 w-auto md:h-20 lg:h-24"
-            style="padding-top: 12px;"
+            style="padding-top: 12px"
           />
         </a>
 
@@ -724,50 +724,36 @@
 
     <!-- JavaScript для мобільного меню -->
     <script>
-      const mobileMenuButton = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const menuContent = document.getElementById("menu-content");
-      const menuIcon = document.getElementById("menu-icon");
-      const closeMenuButton = document.getElementById("close-menu-button");
-      const closeIcon = document.getElementById("close-icon");
+      document.addEventListener("DOMContentLoaded", () => {
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuContent = document.getElementById("menu-content");
+        const menuIcon = document.getElementById("menu-icon");
+        const closeMenuButton = document.getElementById("close-menu-button");
+        const closeIcon = document.getElementById("close-icon");
 
-      mobileMenuButton.addEventListener("click", () => {
-        // Перевіряємо, чи меню відкрите чи закрите
-        const isMenuOpen = !mobileMenu.classList.contains("hidden");
-
-        if (isMenuOpen) {
-          // Якщо меню відкрито, закриваємо його
-          mobileMenu.classList.add("hidden");
-          menuContent.classList.add("translate-x-full");
-          menuContent.classList.remove("translate-x-0");
-          menuContent.classList.remove("fadeIn");
-
-          // Зміна іконки з хрестика на гамбургер
-          menuIcon.classList.add("fa-bars");
-          menuIcon.classList.remove("fa-times");
-        } else {
-          // Якщо меню закрите, відкриваємо його
+        const openMenu = () => {
           mobileMenu.classList.remove("hidden");
           menuContent.classList.remove("translate-x-full");
-          menuContent.classList.add("translate-x-0");
-          menuContent.classList.add("fadeIn");
+          menuContent.classList.add("translate-x-0", "fadeIn");
+          menuIcon.classList.add("hidden");
+          closeIcon.classList.remove("hidden");
+        };
 
-          // Зміна іконки з гамбургерного меню на хрестик
-          menuIcon.classList.add("fa-times");
-          menuIcon.classList.remove("fa-bars");
-        }
-      });
+        const closeMenu = () => {
+          mobileMenu.classList.add("hidden");
+          menuContent.classList.add("translate-x-full");
+          menuContent.classList.remove("translate-x-0", "fadeIn");
+          menuIcon.classList.remove("hidden");
+          closeIcon.classList.add("hidden");
+        };
 
-      // Обробка кліку на кнопку закриття меню
-      closeMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.add("hidden");
-        menuContent.classList.add("translate-x-full");
-        menuContent.classList.remove("translate-x-0");
-        menuContent.classList.remove("fadeIn");
+        mobileMenuButton.addEventListener("click", () => {
+          const isMenuOpen = !mobileMenu.classList.contains("hidden");
+          isMenuOpen ? closeMenu() : openMenu();
+        });
 
-        // Зміна іконки з хрестика на гамбургер
-        menuIcon.classList.add("fa-bars");
-        menuIcon.classList.remove("fa-times");
+        closeMenuButton.addEventListener("click", closeMenu);
       });
     </script>
 
