@@ -19,6 +19,16 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
 
     <!-- Мета-теги для SEO -->
     <meta
@@ -77,6 +87,35 @@
       .translate-x-0 {
         transform: translateX(0);
       }
+
+      /* Стилізація кнопок навігації */
+      .custom-nav {
+        color: #ff4d4f; /* Червоний колір */
+        padding: 12px;
+        border-radius: 50%; /* Кругла форма */
+        transition: all 0.3s ease-in-out;
+      }
+
+      .custom-nav:hover {
+        background-color: #ff4d4f; /* Яскраво-червоний при наведенні */
+        color: white; /* Білий колір стрілок */
+        transform: scale(1.1); /* Легке збільшення при наведенні */
+        box-shadow: 0 4px 10px rgba(255, 77, 79, 0.6); /* Тінь для ефекту */
+      }
+
+      /* Стилізація пагінації */
+      .custom-pagination .swiper-pagination-bullet {
+        background: rgba(255, 77, 79, 0.5); /* Напівпрозорий червоний */
+        width: 12px;
+        height: 12px;
+        margin: 0 6px;
+        transition: background 0.3s ease;
+      }
+
+      .custom-pagination .swiper-pagination-bullet-active {
+        background: #ff4d4f; /* Яскраво-червоний для активної кулі */
+        transform: scale(1.2); /* Виділення активної кулі */
+      }
     </style>
   </head>
   <body
@@ -100,32 +139,43 @@
     <header
       id="navbar"
       class="bg-transparent fixed w-full top-0 left-0 z-50 transition-colors duration-300"
+      style="font-family: 'Montserrat', sans-serif"
     >
       <nav
-        class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center"
+        class="max-w-6xl mx-auto px-2 py-2 flex justify-between items-center"
       >
         <!-- Логотип -->
         <a href="#" class="flex-shrink-0">
           <img
             src="assets/IMAGE_2025-01-31_15_42_11-removebg-preview.png"
             alt="Epatazh Logo"
-            class="h-16 w-auto md:h-20 lg:h-24"
-            style="padding-top: 12px"
+            class="h-20 w-auto md:h-24 lg:h-26"
+            style="padding-top: 8px"
           />
         </a>
 
         <!-- Десктопне меню -->
-        <div class="hidden md:flex space-x-6">
-          <a href="#about" class="text-white hover:text-gray-300 text-lg"
+        <div
+          class="hidden md:flex space-x-4 text-lg font-semibold uppercase tracking-wide"
+        >
+          <a
+            href="#about"
+            class="text-white hover:text-gray-300 transition-colors duration-200"
             >Про магазин</a
           >
-          <a href="#catalog" class="text-white hover:text-gray-300 text-lg"
+          <a
+            href="#catalog"
+            class="text-white hover:text-gray-300 transition-colors duration-200"
             >Топові моделі</a
           >
-          <a href="#advantages" class="text-white hover:text-gray-300 text-lg"
+          <a
+            href="#advantages"
+            class="text-white hover:text-gray-300 transition-colors duration-200"
             >Переваги</a
           >
-          <a href="#store" class="text-white hover:text-gray-300 text-lg"
+          <a
+            href="#store"
+            class="text-white hover:text-gray-300 transition-colors duration-200"
             >Наш магазин</a
           >
         </div>
@@ -140,10 +190,11 @@
       </nav>
     </header>
 
-    <!-- Мобільне меню (плавне з'явлення) -->
+    <!-- Мобільне меню -->
     <aside
       id="mobile-menu"
       class="md:hidden fixed inset-0 bg-red-700 bg-opacity-70 z-50 hidden"
+      style="font-family: 'Montserrat', sans-serif"
     >
       <!-- Кнопка закриття меню -->
       <button
@@ -155,22 +206,34 @@
 
       <div
         id="menu-content"
-        class="w-72 bg-red-700 h-full p-6 transition-transform transform translate-x-full animated"
+        class="w-72 bg-red-700 h-full p-4 transition-transform transform translate-x-full"
       >
-        <a href="#catalog" class="block text-white text-2xl py-2"
+        <a
+          href="#catalog"
+          class="block text-white text-2xl py-3 font-semibold uppercase"
           >Топові моделі</a
         >
-        <a href="#about" class="block text-white text-2xl py-2">Про магазин</a>
-        <a href="#advantages" class="block text-white text-2xl py-2"
+        <a
+          href="#about"
+          class="block text-white text-2xl py-3 font-semibold uppercase"
+          >Про магазин</a
+        >
+        <a
+          href="#advantages"
+          class="block text-white text-2xl py-3 font-semibold uppercase"
           >Переваги</a
         >
-        <a href="#store" class="block text-white text-2xl py-2">Наш магазин</a>
+        <a
+          href="#store"
+          class="block text-white text-2xl py-3 font-semibold uppercase"
+          >Наш магазин</a
+        >
       </div>
     </aside>
 
     <!-- Hero Section -->
     <section
-      class="relative h-screen flex items-center justify-center bg-cover bg-center px-4 sm:px-6 md:px-12"
+      class="pt-[10%] relative h-screen flex items-center justify-center bg-cover bg-center px-4 sm:px-6 md:px-12"
       style="background-image: url('hero.jpg')"
       data-aos="fade-up"
     >
@@ -246,52 +309,63 @@
       <h2 class="text-4xl font-extrabold text-white mb-8 pt-12">
         Топові моделі
       </h2>
-      <div
-        class="grid grid-cols-1 md:grid-cols-3 gap-8 px-6"
-        data-aos="fade-up"
-      >
-        <div
-          class="relative group rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition"
-        >
-          <img
-            src="assets/1.jpg"
-            alt="Модель 1"
-            class="w-full h-auto object-cover transition-transform transform group-hover:scale-105 max-w-[70%] mx-auto"
-          />
+
+      <!-- Swiper -->
+      <div class="swiper mySwiper px-6" data-aos="fade-up">
+        <div class="swiper-wrapper">
+          <!-- Слайд 1 -->
           <div
-            class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition"
+            class="swiper-slide relative group rounded-xl overflow-hidden shadow-2xl"
           >
-            <p class="text-white text-lg font-semibold">Модель 1</p>
+            <img
+              src="assets/1.jpg"
+              alt="Модель 1"
+              class="w-full h-[30%] object-cover transition-transform transform group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition"
+            >
+              <p class="text-white text-xl font-semibold">Модель 1</p>
+            </div>
+          </div>
+
+          <!-- Слайд 2 -->
+          <div
+            class="swiper-slide relative group rounded-xl overflow-hidden shadow-2xl"
+          >
+            <img
+              src="assets/2.jpg"
+              alt="Модель 2"
+              class="w-full h-[30%] object-cover transition-transform transform group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition"
+            >
+              <p class="text-white text-xl font-semibold">Модель 2</p>
+            </div>
+          </div>
+
+          <!-- Слайд 3 -->
+          <div
+            class="swiper-slide relative group rounded-xl overflow-hidden shadow-2xl"
+          >
+            <img
+              src="assets/3.jpg"
+              alt="Модель 3"
+              class="w-full h-[30%] object-cover transition-transform transform group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition"
+            >
+              <p class="text-white text-xl font-semibold">Модель 3</p>
+            </div>
           </div>
         </div>
-        <div
-          class="relative group rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition"
-        >
-          <img
-            src="assets/2.jpg"
-            alt="Модель 2"
-            class="w-full h-auto object-cover transition-transform transform group-hover:scale-105 max-w-[70%] mx-auto"
-          />
-          <div
-            class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition"
-          >
-            <p class="text-white text-lg font-semibold">Модель 2</p>
-          </div>
-        </div>
-        <div
-          class="relative group rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition"
-        >
-          <img
-            src="assets/3.jpg"
-            alt="Модель 3"
-            class="w-full h-auto object-cover transition-transform transform group-hover:scale-105 max-w-[70%] mx-auto"
-          />
-          <div
-            class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition"
-          >
-            <p class="text-white text-lg font-semibold">Модель 3</p>
-          </div>
-        </div>
+
+        <!-- Навігація -->
+        <div class="swiper-button-prev custom-nav"></div>
+        <div class="swiper-button-next custom-nav"></div>
+        <div class="swiper-pagination custom-pagination"></div>
       </div>
     </section>
 
@@ -362,280 +436,108 @@
       </div>
     </section>
 
-    <!-- Карта з місцем магазину -->
-    <section class="py-16" data-aos="fade-up" id="store">
-      <h2 class="text-4xl font-extrabold text-center text-white mb-8 pt-12">
-        Наше місцезнаходження
-      </h2>
-      <div
-        class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden"
+    <section class="py-12 md:py-16" data-aos="fade-up" id="contact">
+      <h2
+        class="text-3xl md:text-4xl font-extrabold text-center text-white mb-6 md:mb-8 pt-8 md:pt-12"
       >
-        <div class="relative w-full h-96">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d163.46426798700625!2d24.353130527468345!3d49.04047969324015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4730a30049c1fa7d%3A0xf66f01564f4ed179!2sMahazyn%20Bilyzny%20%22Epatazh%22!5e0!3m2!1sru!2sua!4v1738313650735!5m2!1sru!2sua"
-            width="100%"
-            height="100%"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-      </div>
-    </section>
+        Зв'яжіться з нами
+      </h2>
 
-    <!-- Відгуки -->
-    <section class="py-16 text-center" data-aos="fade-up">
-      <h2 class="text-3xl font-bold text-white mb-8">Відгуки клієнтів</h2>
-      <div class="flex flex-wrap justify-center gap-6 mt-6">
-        <!-- Відгук 1 -->
-        <div
-          class="bg-[#8B0000] p-6 rounded-lg shadow-xl w-72 transform transition duration-500 hover:scale-105 hover:shadow-2xl"
-        >
-          <div class="flex justify-center items-center mb-4">
-            <img
-              src="assets/Знімок екрана 2025-01-31 о 13.18.53.png"
-              alt="Клієнт 1"
-              class="rounded-full w-16 h-16 mx-auto border-4 border-red-500"
-            />
-          </div>
-          <p class="text-sm text-white italic">
-            “Чудова якість та стильний дизайн!”
-          </p>
-          <p class="text-lg font-semibold text-white mt-2">Олена К.</p>
-          <p class="text-sm text-gray-400">Клієнтка з Києва</p>
-        </div>
-        <!-- Відгук 2 -->
-        <div
-          class="bg-[#8B0000] p-6 rounded-lg shadow-xl w-72 transform transition duration-500 hover:scale-105 hover:shadow-2xl"
-        >
-          <div class="flex justify-center items-center mb-4">
-            <img
-              src="assets/Знімок екрана 2025-01-31 о 13.18.53.png"
-              alt="Клієнт 2"
-              class="rounded-full w-16 h-16 mx-auto border-4 border-red-500"
-            />
-          </div>
-          <p class="text-sm text-white italic">“Дуже задоволена покупкою!”</p>
-          <p class="text-lg font-semibold text-white mt-2">Ірина П.</p>
-          <p class="text-sm text-gray-400">Клієнтка з Одеси</p>
-        </div>
-        <!-- Відгук 3 -->
-        <div
-          class="bg-[#8B0000] p-6 rounded-lg shadow-xl w-72 transform transition duration-500 hover:scale-105 hover:shadow-2xl"
-        >
-          <div class="flex justify-center items-center mb-4">
-            <img
-              src="assets/Знімок екрана 2025-01-31 о 13.18.53.png"
-              alt="Клієнт 3"
-              class="rounded-full w-16 h-16 mx-auto border-4 border-red-500"
-            />
-          </div>
-          <p class="text-sm text-white italic">
-            “Неперевершена комфортність, рекомендую!”
-          </p>
-          <p class="text-lg font-semibold text-white mt-2">Марина С.</p>
-          <p class="text-sm text-gray-400">Клієнтка з Львова</p>
-        </div>
-        <!-- Відгук 4 -->
-        <div
-          class="bg-[#8B0000] p-6 rounded-lg shadow-xl w-72 transform transition duration-500 hover:scale-105 hover:shadow-2xl"
-        >
-          <div class="flex justify-center items-center mb-4">
-            <img
-              src="assets/Знімок екрана 2025-01-31 о 13.18.53.png"
-              alt="Клієнт 4"
-              class="rounded-full w-16 h-16 mx-auto border-4 border-red-500"
-            />
-          </div>
-          <p class="text-sm text-white italic">
-            “Швидка доставка і відмінна якість!”
-          </p>
-          <p class="text-lg font-semibold text-white mt-2">Юлія М.</p>
-          <p class="text-sm text-gray-400">Клієнтка з Харкова</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Запитання та відповіді (FAQ) -->
-    <section class="py-16 text-center" data-aos="fade-up">
-      <h2 class="text-3xl font-bold">Запитання та відповіді</h2>
-
-      <div class="accordion mt-8 max-w-4xl mx-auto">
-        <!-- Запитання 1 -->
-        <div class="accordion-item bg-gray-950 text-white rounded-lg mb-4">
-          <button
-            class="accordion-button w-full text-left p-4 flex justify-between items-center transition-all duration-300 ease-in-out hover:bg-[#FF0000]"
+      <div
+        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
+      >
+        <!-- Місцезнаходження -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <h3
+            class="text-xl md:text-2xl font-bold text-center text-[#8B0000] py-4"
           >
-            <span>Які розміри у вас є?</span>
-            <i
-              class="fas fa-chevron-down fa-lg transform transition-transform duration-300"
-            ></i>
-            <!-- Іконка розгортання -->
-          </button>
-          <div
-            class="accordion-content p-4 hidden max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-[#8B0000]"
-          >
-            <p>
-              Ми пропонуємо різні розміри від XS до XXL для максимальної
-              зручності.
+            Наше місцезнаходження
+          </h3>
+          <div class="w-full h-60 md:h-80">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d163.46426798700625!2d24.353130527468345!3d49.04047969324015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4730a30049c1fa7d%3A0xf66f01564f4ed179!2sMahazyn%20Bilyzny%20%22Epatazh%22!5e0!3m2!1sru!2sua!4v1738313650735!5m2!1sru!2sua"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Соцмережі + Форма для відгуків -->
+        <div class="bg-white shadow-lg rounded-lg p-6 space-y-6 md:space-y-8">
+          <!-- Соцмережі -->
+          <div>
+            <h3
+              class="text-xl md:text-2xl font-bold text-center text-[#8B0000]"
+            >
+              Слідкуйте за нами
+            </h3>
+            <p class="text-center text-gray-700 mb-4">
+              Будьте в курсі новин та акцій!
             </p>
+            <div class="flex justify-center gap-6 md:gap-8">
+              <a
+                href="#"
+                class="text-[#8B0000] hover:text-yellow-400 transition text-2xl p-2 hover:scale-110"
+              >
+                <i class="fab fa-instagram"></i> Instagram
+              </a>
+              <a
+                href="#"
+                class="text-[#8B0000] hover:text-blue-400 transition text-2xl p-2 hover:scale-110"
+              >
+                <i class="fab fa-facebook"></i> Facebook
+              </a>
+              <a
+                href="#"
+                class="text-[#8B0000] hover:text-[#ff2b5d] transition text-2xl p-2 hover:scale-110"
+              >
+                <i class="fab fa-tiktok"></i> TikTok
+              </a>
+            </div>
+          </div>
+
+          <!-- Форма для відгуків -->
+          <div>
+            <h3
+              class="text-xl md:text-2xl font-bold text-center text-[#8B0000]"
+            >
+              Додайте відгук
+            </h3>
+            <form class="space-y-4 mt-4">
+              <input
+                type="text"
+                placeholder="Ваше ім’я"
+                required
+                class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#8B0000] outline-none"
+              />
+
+              <input
+                type="email"
+                placeholder="Ваш email"
+                required
+                class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#8B0000] outline-none"
+              />
+
+              <textarea
+                rows="3"
+                placeholder="Ваш відгук"
+                required
+                class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#8B0000] outline-none"
+              ></textarea>
+
+              <button
+                type="submit"
+                class="w-full py-3 bg-[#8B0000] text-white text-xl font-semibold rounded-md hover:bg-red-800 transition"
+              >
+                Надіслати відгук
+              </button>
+            </form>
           </div>
         </div>
-
-        <!-- Запитання 2 -->
-        <div class="accordion-item bg-gray-950 text-white rounded-lg mb-4">
-          <button
-            class="accordion-button w-full text-left p-4 flex justify-between items-center transition-all duration-300 ease-in-out hover:bg-[#FF0000]"
-          >
-            <span>Як я можу повернути товар?</span>
-            <i
-              class="fas fa-chevron-down fa-lg transform transition-transform duration-300"
-            ></i>
-            <!-- Іконка розгортання -->
-          </button>
-          <div
-            class="accordion-content p-4 hidden max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-[#8B0000]"
-          >
-            <p>
-              Повернення товару можливо протягом 14 днів після покупки.
-              Зверніться до нашої служби підтримки для уточнень.
-            </p>
-          </div>
-        </div>
-
-        <!-- Запитання 3 -->
-        <div class="accordion-item bg-gray-950 text-white rounded-lg mb-4">
-          <button
-            class="accordion-button w-full text-left p-4 flex justify-between items-center transition-all duration-300 ease-in-out hover:bg-[#FF0000]"
-          >
-            <span>Чи є у вас подарункові сертифікати?</span>
-            <i
-              class="fas fa-chevron-down fa-lg transform transition-transform duration-300"
-            ></i>
-            <!-- Іконка розгортання -->
-          </button>
-          <div
-            class="accordion-content p-4 hidden max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-[#8B0000]"
-          >
-            <p>
-              Так, ми пропонуємо сертифікати на 350₴ / 500₴ / 1000₴ / 2000₴
-              гривень.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA
-    <section class="py-16 text-center bg-black text-white" data-aos="fade-down">
-      <h2 class="text-3xl font-bold">Отримай знижку -10%</h2>
-      <p class="mt-2">Підпишись на новинки та акції</p>
-      <form class="mt-4 flex justify-center">
-        <input
-          type="email"
-          placeholder="Введіть email"
-          class="px-4 py-2 rounded-l-lg text-black"
-        />
-        <button class="bg-red-600 px-6 py-2 rounded-r-lg text-white">
-          Підписатися
-        </button>
-      </form>
-    </section> -->
-
-    <!-- Слідкуйте за нами в соц мережах -->
-    <section class="py-12 text-center" data-aos="fade-up">
-      <div class="bg-white shadow-lg rounded-lg p-8 max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold mb-6 text-[#8B0000]">
-          Слідкуйте за нами в соц мережах
-        </h2>
-        <p class="text-lg mb-8 text-gray-700">
-          Будьте в курсі новин та акцій, підписуйтеся на наші сторінки!
-        </p>
-
-        <!-- Соціальні мережі -->
-        <div class="flex justify-center gap-6 sm:gap-8 md:gap-12 flex-wrap">
-          <a
-            href="#"
-            class="text-[#8B0000] hover:text-yellow-400 transition-colors text-2xl p-3 hover:scale-110 transform duration-300"
-          >
-            <i class="fab fa-instagram"></i> Instagram
-          </a>
-          <a
-            href="#"
-            class="text-[#8B0000] hover:text-blue-400 transition-colors text-2xl p-3 hover:scale-110 transform duration-300"
-          >
-            <i class="fab fa-facebook"></i> Facebook
-          </a>
-          <a
-            href="#"
-            class="text-[#8B0000] hover:text-[#ff2b5d] transition-colors text-2xl p-3 hover:scale-110 transform duration-300"
-          >
-            <i class="fab fa-tiktok"></i> TikTok
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Додайте відгук -->
-    <section class="py-12 text-center" data-aos="fade-up">
-      <div class="bg-white shadow-lg rounded-lg p-8 max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold mb-6 text-[#8B0000]">Додайте відгук</h2>
-        <p class="text-lg mb-8 text-gray-700">
-          Ми цінуємо вашу думку! Поділіться своїм досвідом та враженнями про наш
-          сервіс.
-        </p>
-
-        <!-- Форма відгуку -->
-        <form class="space-y-6">
-          <div>
-            <label for="name" class="block text-lg font-medium text-gray-700"
-              >Ваше ім’я</label
-            >
-            <input
-              type="text"
-              id="name"
-              name="name"
-              class="mt-2 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B0000]"
-              placeholder="Ваше ім’я"
-              required
-            />
-          </div>
-          <div>
-            <label for="email" class="block text-lg font-medium text-gray-700"
-              >Ваш email</label
-            >
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="mt-2 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B0000]"
-              placeholder="Ваш email"
-              required
-            />
-          </div>
-          <div>
-            <label for="review" class="block text-lg font-medium text-gray-700"
-              >Ваш відгук</label
-            >
-            <textarea
-              id="review"
-              name="review"
-              rows="4"
-              class="mt-2 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B0000]"
-              placeholder="Ваш відгук"
-              required
-            ></textarea>
-          </div>
-          <div>
-            <button
-              type="submit"
-              class="w-full py-3 bg-[#8B0000] text-white text-xl font-semibold rounded-md hover:bg-red-800 transition-colors"
-            >
-              Надіслати відгук
-            </button>
-          </div>
-        </form>
       </div>
     </section>
 
@@ -711,6 +613,31 @@
         once: true,
       });
     </script>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        },
+      });
+    </script>
 
     <!-- Ініціалізація Smooth Scroll -->
     <script>
@@ -771,30 +698,6 @@
           navbar.classList.remove("bg-[#8B0000]");
           navbar.classList.add("bg-transparent");
         }
-      });
-    </script>
-    <!-- JavaScript для акордеону -->
-    <script>
-      const accordions = document.querySelectorAll(".accordion-button");
-      accordions.forEach((button) => {
-        button.addEventListener("click", () => {
-          const content = button.nextElementSibling;
-          const icon = button.querySelector("i");
-
-          // Перемикання видимості контенту
-          content.classList.toggle("hidden");
-
-          // Анімація розгортання
-          if (content.classList.contains("hidden")) {
-            content.style.maxHeight = "0";
-          } else {
-            content.style.maxHeight = content.scrollHeight + "px"; // Плавне розгортання
-          }
-
-          // Перемикання іконки
-          icon.classList.toggle("fa-chevron-down");
-          icon.classList.toggle("fa-chevron-up"); // Зміна на іконку "вгору"
-        });
       });
     </script>
   </body>
