@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Epatazh – Спокуса в деталях</title>
+    <title>Епатаж – Спокуса в деталях</title>
 
     <!-- Підключення Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,14 +11,12 @@
     <!-- Підключення бібліотеки для плавного скролінгу -->
     <script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.polyfills.min.js"></script>
 
-    <!-- Підключення Font Awesome (Вибір однієї версії) -->
+    <!-- Підключення Font Awesome 6 через CDN -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
       rel="stylesheet"
@@ -97,10 +95,8 @@
       }
 
       .custom-nav:hover {
-        background-color: #ff4d4f; /* Яскраво-червоний при наведенні */
         color: white; /* Білий колір стрілок */
         transform: scale(1.1); /* Легке збільшення при наведенні */
-        box-shadow: 0 4px 10px rgba(255, 77, 79, 0.6); /* Тінь для ефекту */
       }
 
       /* Стилізація пагінації */
@@ -115,6 +111,39 @@
       .custom-pagination .swiper-pagination-bullet-active {
         background: #ff4d4f; /* Яскраво-червоний для активної кулі */
         transform: scale(1.2); /* Виділення активної кулі */
+      }
+
+      .countdown-container {
+        font-family: Arial, sans-serif;
+        font-size: 28px;
+        font-weight: bold;
+        text-align: center;
+        color: #fff;
+        background: #8b0000;
+        padding: 15px 25px;
+        border-radius: 8px;
+        display: inline-block;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        letter-spacing: 2px;
+      }
+
+      #countdown {
+        margin: 0;
+        letter-spacing: 2px;
+      }
+
+      .expired {
+        color: #ffcc00;
+      }
+
+      .full-benefit {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+      }
+
+      .full-benefit.open {
+        max-height: 2000px; /* або значення, яке підходить для вашого контенту */
       }
     </style>
   </head>
@@ -176,7 +205,7 @@
           <a
             href="#store"
             class="text-white hover:text-gray-300 transition-colors duration-200"
-            >Наш магазин</a
+            >Ми онлайн</a
           >
         </div>
 
@@ -247,9 +276,9 @@
       <div class="absolute inset-0 bg-black bg-opacity-50"></div>
       <div class="text-center relative z-10">
         <h1
-          class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-white mt-8 sm:mt-0"
+          class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-white mt-8 sm:mt-0 text-red-600"
         >
-          Epatazh – спокуса в деталях
+          Епатаж – спокуса в деталях
         </h1>
         <a
           href="#catalog"
@@ -280,16 +309,16 @@
           Про магазин
         </h2>
         <p class="mt-6 text-xl font-light italic text-gray-300">
-          <span class="font-semibold text-[#FF0000]">Epatazh</span> – це
+          <span class="font-semibold text-[#FF0000]">Епатаж</span> – це
           естетика, стиль і пристрасть у кожному виробі.
         </p>
         <p class="mt-6 text-lg leading-relaxed">
           Наш
           <span class="font-semibold text-[#FF0000]">магазин білизни</span> був
-          відкритий у Калуші й пройшов довгий шлях розвитку. Вже понад
-          <span class="font-bold text-[#FF0000]">20 років</span> ми даруємо
-          жінкам якість, витонченість і комфорт, поєднуючи сучасні тренди з
-          класичною елегантністю.
+          відкритий у Калуші й пройшов довгий шлях розвитку. Вже більше ніж
+          <span class="font-bold text-lg text-[#FF0000]">24 років</span> ми
+          даруємо жінкам якість, витонченість і комфорт, поєднуючи сучасні
+          тренди з класичною елегантністю.
         </p>
         <p class="mt-4 text-lg leading-relaxed">
           <span class="text-[#FF0000] font-semibold">Epatazh</span> – це не
@@ -313,70 +342,127 @@
 
     <!-- Топові моделі -->
     <section id="catalog" class="py-16 text-center">
-      <h2 class="text-4xl font-extrabold text-white mb-8 pt-12">
+      <h2
+        class="text-4xl md:text-5xl font-extrabold text-white mb-8 pt-12 data-aos"
+        data-aos="fade-up"
+      >
         Топові моделі
       </h2>
+      <h3 class="italic text-red-500 underline mb-5 text-lg" data-aos="fade-up">
+        Бренди білизни з якими співпрацюємо
+      </h3>
 
       <!-- Swiper -->
-      <div class="swiper mySwiper px-6" data-aos="fade-up">
+      <div class="swiper mySwiper px-4 md:px-6 lg:px-10" data-aos="fade-up">
         <div class="swiper-wrapper">
           <!-- Слайд 1 -->
           <div
-            class="swiper-slide relative group rounded-xl overflow-hidden shadow-2xl"
+            class="swiper-slide relative group rounded-xl overflow-hidden shadow-2xl model-link"
+            data-page="acousma.html"
           >
             <img
               src="assets/1.jpg"
               alt="Модель 1"
-              class="w-full h-[30%] object-cover transition-transform transform group-hover:scale-110"
+              class="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center transition-transform transform group-hover:scale-110"
             />
             <div
-              class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition"
+              class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all"
             >
-              <p class="text-white text-xl font-semibold">Модель 1</p>
+              <p
+                class="text-white text-lg md:text-xl lg:text-2xl font-semibold group-hover:text-red-500 transition-all"
+              >
+                Acousma
+              </p>
             </div>
           </div>
 
           <!-- Слайд 2 -->
           <div
-            class="swiper-slide relative group rounded-xl overflow-hidden shadow-2xl"
+            class="swiper-slide relative group rounded-xl overflow-hidden shadow-2xl model-link"
+            data-page="model2.html"
           >
             <img
               src="assets/2.jpg"
               alt="Модель 2"
-              class="w-full h-[30%] object-cover transition-transform transform group-hover:scale-110"
+              class="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center transition-transform transform group-hover:scale-110"
             />
             <div
-              class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition"
+              class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all"
             >
-              <p class="text-white text-xl font-semibold">Модель 2</p>
+              <p
+                class="text-white text-lg md:text-xl lg:text-2xl font-semibold group-hover:text-red-500 transition-all"
+              >
+                Victoria's Secret
+              </p>
             </div>
           </div>
 
           <!-- Слайд 3 -->
           <div
-            class="swiper-slide relative group rounded-xl overflow-hidden shadow-2xl"
+            class="swiper-slide relative group rounded-xl overflow-hidden shadow-2xl model-link"
+            data-page="model3.html"
           >
             <img
-              src="assets/3.jpg"
+              src="assets/slider/3s.jpg"
               alt="Модель 3"
-              class="w-full h-[30%] object-cover transition-transform transform group-hover:scale-110"
+              class="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center transition-transform transform group-hover:scale-110"
             />
             <div
-              class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition"
+              class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all"
             >
-              <p class="text-white text-xl font-semibold">Модель 3</p>
+              <p
+                class="text-white text-lg md:text-xl lg:text-2xl font-semibold group-hover:text-red-500 transition-all"
+              >
+                Верара
+              </p>
+            </div>
+          </div>
+
+          <!-- Слайд 4 -->
+          <div
+            class="swiper-slide relative group rounded-xl overflow-hidden shadow-2xl model-link"
+            data-page="model4.html"
+          >
+            <img
+              src="assets/slider/finish.jpg"
+              alt="Модель 4"
+              class="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center transition-transform transform group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all"
+            >
+              <p
+                class="text-white text-lg md:text-xl lg:text-2xl font-semibold group-hover:text-red-500 transition-all"
+              >
+                Нова модель
+              </p>
             </div>
           </div>
         </div>
 
         <!-- Навігація -->
-        <div class="swiper-button-prev custom-nav"></div>
-        <div class="swiper-button-next custom-nav"></div>
+        <div class="swiper-button-prev custom-nav hidden sm:flex"></div>
+        <div class="swiper-button-next custom-nav hidden sm:flex"></div>
         <div class="swiper-pagination custom-pagination"></div>
       </div>
     </section>
 
-    
+    <!-- Переваги -->
+
+    <section
+      id="advantages"
+      class="py-16 px-12 text-center bg-black text-white"
+      data-aos="fade-right"
+    >
+    </section>
+
+    <!-- Підключення Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- секцію з формою -->
     <section class="py-12 md:py-16" data-aos="fade-up" id="contact">
       <h2
         class="text-3xl md:text-4xl font-extrabold text-center text-white mb-6 md:mb-8 pt-8 md:pt-12"
@@ -482,13 +568,64 @@
       </div>
     </section>
 
+    <!-- #store -->
+
+    <section
+      class="py-12 md:py-16 bg-[#8B0000] relative"
+      id="store"
+      data-aos="fade-up"
+    >
+      <!-- Заголовок поза контейнером -->
+      <div
+        class="absolute top-4 left-1/2 transform -translate-x-1/2 bg-[#8B0000] px-6 py-3 rounded-lg shadow-xl border-4 border-white"
+      >
+        <h2
+          class="text-3xl md:text-4xl font-extrabold text-white flex items-center"
+        >
+          <i class="fas fa-store mr-3 text-xl"></i> Онлайн-магазин
+        </h2>
+      </div>
+
+      <div class="container mx-auto text-center mt-20">
+        <p class="text-lg md:text-xl text-white max-w-xl mx-auto opacity-80">
+          Скоро відкриття! Слідкуйте за оновленнями та не пропустіть старт
+          продажів.
+        </p>
+
+        <!-- Таймер зворотного відліку -->
+        <div class="countdown-container mt-6">
+          <p
+            id="countdown"
+            class="text-2xl md:text-3xl font-bold text-white"
+          ></p>
+        </div>
+
+        <!-- Кнопка "Слідкувати" -->
+        <div class="mt-6">
+          <a
+            href="#contacts"
+            class="px-6 py-3 bg-white text-red-700 font-semibold rounded-lg shadow-lg hover:bg-[#9B1111] hover:text-white transition-all duration-300"
+          >
+            Слідкувати за оновленнями
+          </a>
+        </div>
+
+        <!-- Іконка стрілки вниз -->
+        <div class="mt-6">
+          <i
+            class="fa-solid fa-arrow-down text-4xl text-white animate-bounce hover:text-[#ff4d4d] transition-all duration-300"
+          ></i>
+        </div>
+      </div>
+    </section>
+
     <!-- Контакти -->
     <footer
       class="py-12 bg-[#8B0000] text-center text-white"
       style="font-family: 'Montserrat', sans-serif"
-      
+      id="contacts"
     >
-      <div class="max-w-6xl mx-auto px-4" data-aos="fade-up">
+      <div class="max-w-6xl mx-auto px-4" data-aos="fade-right">
         <!-- Заголовок та контактна інформація -->
         <h2 class="text-3xl md:text-4xl font-bold mb-6">Контакти</h2>
         <p class="text-lg md:text-xl mt-2">
@@ -673,5 +810,63 @@
         }
       });
     </script>
+    <!-- Код для кнопки при переході між сторінками в Топові моделі -->
+    <!-- <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".model-link").forEach((item) => {
+          item.addEventListener("click", function () {
+            const page = this.getAttribute("data-page");
+            window.location.href = page;
+          });
+        });
+      });
+    </script> -->
+
+    <!-- count down -->
+    <script>
+      // Встановлення дати завершення
+      let countDownDate = new Date("Mar 10, 2025 00:00:00").getTime();
+
+      // Оновлення таймера кожну секунду
+      let x = setInterval(function () {
+        let now = new Date().getTime();
+        let distance = countDownDate - now;
+
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        let countdownElement = document.getElementById("countdown");
+
+        // Відображення таймера
+        countdownElement.innerHTML =
+          days + "д " + hours + "г " + minutes + "хв " + seconds + "с";
+
+        // Якщо таймер завершився
+        if (distance < 0) {
+          clearInterval(x);
+          countdownElement.innerHTML = "Час вийшов!";
+          countdownElement.classList.add("expired");
+        }
+      }, 1000);
+    </script>
+    <!-- advatages
+    <script>
+      function toggleContent(benefitNumber) {
+        const fullContent = document.getElementById(
+          `full-benefit-${benefitNumber}`
+        );
+
+        // Додамо або видалимо клас .open для плавного розгортання та згортання
+        if (fullContent.classList.contains("open")) {
+          fullContent.classList.remove("open");
+        } else {
+          fullContent.classList.add("open");
+        }
+      }
+    </script> -->
   </body>
 </html>
