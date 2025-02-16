@@ -28,6 +28,10 @@
       rel="stylesheet"
     />
 
+    <!-- Мобільні пристрої -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!-- Swiper CSS -->
     <link
       rel="stylesheet"
@@ -268,15 +272,16 @@
           Навігація
         </h3>
 
-        <a
-          href="#catalog"
-          class="block text-white text-2xl py-3 font-semibold uppercase"
-          >Топові моделі</a
-        >
+        <!-- Мобільне меню: додаємо всі кнопки, що є в десктопному меню -->
         <a
           href="#about"
           class="block text-white text-2xl py-3 font-semibold uppercase"
           >Про магазин</a
+        >
+        <a
+          href="#catalog"
+          class="block text-white text-2xl py-3 font-semibold uppercase"
+          >Топові моделі</a
         >
         <a
           href="#advantages"
@@ -286,7 +291,7 @@
         <a
           href="#store"
           class="block text-white text-2xl py-3 font-semibold uppercase"
-          >Наш магазин</a
+          >Ми онлайн</a
         >
       </div>
     </aside>
@@ -340,26 +345,32 @@
           Наш
           <span class="font-semibold text-[#FF0000]">магазин білизни</span> був
           відкритий у Калуші й пройшов довгий шлях розвитку. Вже більше ніж
-          <span class="font-bold text-lg text-[#FF0000]">24 років</span> ми
+          <span class="font-bold text-lg text-[#FF0000]">24 роки</span> ми
           даруємо жінкам якість, витонченість і комфорт, поєднуючи сучасні
           тренди з класичною елегантністю.
         </p>
         <p class="mt-4 text-lg leading-relaxed">
-          <span class="text-[#FF0000] font-semibold">Epatazh</span> – це не
-          просто магазин, а місце, де
-          <span class="font-bold text-[#FF0000]">кожна жінка</span> може відчути
-          себе впевненою та особливою. Ми ретельно відбираємо найкращі моделі,
-          створюючи колекції, що підкреслюють індивідуальність.
+          У нашому каталозі можна знайти великий вибір товарів та придбати
+          красиві і якісні трусики, сорочки, бюстьє, топи, бюстгальтери,
+          бралетти, панчохи та колготки, купальники, халати, боді або піжами.
         </p>
         <p
           class="mt-6 text-lg font-medium border-l-4 border-[#FF0000] pl-4 italic text-gray-300"
         >
-          Ми пишаємося тим, що наш бренд став символом
+          Ми пишаємося тим, що наш магазин став символом
           <span class="font-bold text-[#FF0000]"
             >вишуканості, якості та довіри</span
           >
           серед наших клієнтів. Завітайте до нас та відчуйте магію білизни,
           створеної для вас!
+        </p>
+        <h3 class="text-2xl font-semibold mt-8">Наші бренди:</h3>
+        <p class="mt-4 text-2xl text-[#FF0000]">
+          Victoria's Secret, Calvin Klein, Weiyesi, Acousma, Verara, Finnish,
+          Conte, Lanny mode, Anabel Arto, Anfen, Anita, BalaLoum, Biweier,
+          Dionella, Donafen, Nicoletta, Sealine, Tommy Hilfiger, Venus, Rivage
+          Line, Atlantic, Donella, Giulia
+          <span class="text-white text-lg">і більше...</span>
         </p>
       </div>
     </section>
@@ -394,9 +405,7 @@
             >
               <p
                 class="text-white text-lg md:text-xl lg:text-2xl font-semibold group-hover:text-red-500 transition-all"
-              >
-                Acousma
-              </p>
+              ></p>
             </div>
           </div>
 
@@ -415,9 +424,7 @@
             >
               <p
                 class="text-white text-lg md:text-xl lg:text-2xl font-semibold group-hover:text-red-500 transition-all"
-              >
-                Victoria's Secret
-              </p>
+              ></p>
             </div>
           </div>
 
@@ -427,7 +434,7 @@
             data-page="model4.html"
           >
             <img
-              src="assets/slider/знімай.jpg"
+              src="assets/slider/3.jpg"
               alt="Модель 3"
               class="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center transition-transform transform group-hover:scale-110"
             />
@@ -446,7 +453,7 @@
             data-page="model3.html"
           >
             <img
-              src="assets/slider/3s.jpg"
+              src="assets/slider/4.jpg"
               alt="Модель 4"
               class="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center transition-transform transform group-hover:scale-110"
             />
@@ -455,9 +462,7 @@
             >
               <p
                 class="text-white text-lg md:text-xl lg:text-2xl font-semibold group-hover:text-red-500 transition-all"
-              >
-                Верара
-              </p>
+              ></p>
             </div>
           </div>
 
@@ -467,7 +472,7 @@
             data-page="model3.html"
           >
             <img
-              src="assets/slider/фон2.jpg"
+              src="assets/slider/5.jpg"
               alt="Модель 5"
               class="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center transition-transform transform group-hover:scale-110"
             />
@@ -476,7 +481,117 @@
             >
               <p
                 class="text-white text-lg md:text-xl lg:text-2xl font-semibold group-hover:text-red-500 transition-all"
-              >Acousma</p>
+              ></p>
+            </div>
+          </div>
+
+          <!-- Слайд 6 -->
+          <div
+            class="swiper-slide relative group rounded-xl overflow-hidden shadow-2xl model-link"
+            data-page="model3.html"
+          >
+            <img
+              src="assets/slider/6.jpg"
+              alt="Модель 6"
+              class="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center transition-transform transform group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all"
+            >
+              <p
+                class="text-white text-lg md:text-xl lg:text-2xl font-semibold group-hover:text-red-500 transition-all"
+              ></p>
+            </div>
+          </div>
+
+          <!-- Слайд 7 -->
+          <div
+            class="swiper-slide relative group rounded-xl overflow-hidden shadow-2xl model-link"
+            data-page="model3.html"
+          >
+            <img
+              src="assets/slider/7.jpg"
+              alt="Модель 7"
+              class="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center transition-transform transform group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all"
+            >
+              <p
+                class="text-white text-lg md:text-xl lg:text-2xl font-semibold group-hover:text-red-500 transition-all"
+              ></p>
+            </div>
+          </div>
+          <!-- Слайд 8 -->
+          <div
+            class="swiper-slide relative group rounded-xl overflow-hidden shadow-2xl model-link"
+            data-page="model3.html"
+          >
+            <img
+              src="assets/slider/8.jpg"
+              alt="Модель 8"
+              class="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center transition-transform transform group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all"
+            >
+              <p
+                class="text-white text-lg md:text-xl lg:text-2xl font-semibold group-hover:text-red-500 transition-all"
+              ></p>
+            </div>
+          </div>
+          <!-- Слайд 9 -->
+          <div
+            class="swiper-slide relative group rounded-xl overflow-hidden shadow-2xl model-link"
+            data-page="model3.html"
+          >
+            <img
+              src="assets/slider/9.jpg"
+              alt="Модель 9"
+              class="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center transition-transform transform group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all"
+            >
+              <p
+                class="text-white text-lg md:text-xl lg:text-2xl font-semibold group-hover:text-red-500 transition-all"
+              ></p>
+            </div>
+          </div>
+          <!-- Слайд 10 -->
+          <div
+            class="swiper-slide relative group rounded-xl overflow-hidden shadow-2xl model-link"
+            data-page="model3.html"
+          >
+            <img
+              src="assets/slider/10.jpg"
+              alt="Модель 10"
+              class="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center transition-transform transform group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all"
+            >
+              <p
+                class="text-white text-lg md:text-xl lg:text-2xl font-semibold group-hover:text-red-500 transition-all"
+              ></p>
+            </div>
+          </div>
+          <!-- Слайд 11 -->
+          <div
+            class="swiper-slide relative group rounded-xl overflow-hidden shadow-2xl model-link"
+            data-page="model3.html"
+          >
+            <img
+              src="assets/slider/11.jpg"
+              alt="Модель 11"
+              class="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center transition-transform transform group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all"
+            >
+              <p
+                class="text-white text-lg md:text-xl lg:text-2xl font-semibold group-hover:text-red-500 transition-all"
+              ></p>
             </div>
           </div>
         </div>
@@ -704,7 +819,7 @@
             <i class="fab fa-facebook"></i> Facebook
           </a>
           <a
-            href="#"
+            href="https://www.tiktok.com/@epatazh_shop?_t=ZM-8txc1yr5Cze&_r=1"
             class="text-white hover:text-black transition-colors text-2xl p-2 hover:scale-110 transform duration-300"
             aria-label="TikTok"
           >
