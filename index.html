@@ -11,6 +11,12 @@
     <!-- Підключення бібліотеки для плавного скролінгу -->
     <script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.polyfills.min.js"></script>
 
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="assets/favicon/DALL·E_2025_02_16_11_07_57_A_minimalistic_icon_featuring_a_single.jpg"
+    />
+
     <!-- Підключення Font Awesome 6 через CDN -->
     <link
       rel="stylesheet"
@@ -47,6 +53,24 @@
     <!-- Підключення шрифтів -->
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Підключення шрифтів -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Підключення шрифтів -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Підключення шрифтів -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
 
@@ -400,11 +424,30 @@
           <!-- Слайд 3 -->
           <div
             class="swiper-slide relative group rounded-xl overflow-hidden shadow-2xl model-link"
+            data-page="model4.html"
+          >
+            <img
+              src="assets/slider/знімай.jpg"
+              alt="Модель 3"
+              class="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center transition-transform transform group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all"
+            >
+              <p
+                class="text-white text-lg md:text-xl lg:text-2xl font-semibold group-hover:text-red-500 transition-all"
+              ></p>
+            </div>
+          </div>
+
+          <!-- Слайд 4 -->
+          <div
+            class="swiper-slide relative group rounded-xl overflow-hidden shadow-2xl model-link"
             data-page="model3.html"
           >
             <img
               src="assets/slider/3s.jpg"
-              alt="Модель 3"
+              alt="Модель 4"
               class="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center transition-transform transform group-hover:scale-110"
             />
             <div
@@ -418,14 +461,14 @@
             </div>
           </div>
 
-          <!-- Слайд 4 -->
+          <!-- Слайд 5 -->
           <div
             class="swiper-slide relative group rounded-xl overflow-hidden shadow-2xl model-link"
-            data-page="model4.html"
+            data-page="model3.html"
           >
             <img
-              src="assets/slider/finish.jpg"
-              alt="Модель 4"
+              src="assets/slider/фон2.jpg"
+              alt="Модель 5"
               class="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center transition-transform transform group-hover:scale-110"
             />
             <div
@@ -433,9 +476,7 @@
             >
               <p
                 class="text-white text-lg md:text-xl lg:text-2xl font-semibold group-hover:text-red-500 transition-all"
-              >
-                Нова модель
-              </p>
+              >Acousma</p>
             </div>
           </div>
         </div>
@@ -453,8 +494,7 @@
       id="advantages"
       class="py-16 px-12 text-center bg-black text-white"
       data-aos="fade-right"
-    >
-    </section>
+    ></section>
 
     <!-- Підключення Font Awesome -->
     <script
@@ -467,7 +507,7 @@
       <h2
         class="text-3xl md:text-4xl font-extrabold text-center text-white mb-6 md:mb-8 pt-8 md:pt-12"
       >
-        Зв'яжіться з нами
+        Більше цікавого контенту...
       </h2>
 
       <div
@@ -507,19 +547,19 @@
             </p>
             <div class="flex justify-center gap-6 md:gap-8">
               <a
-                href="#"
+                href="https://www.instagram.com/epat.ash?igsh=Z3VkMjNlMnQwM3V2&utm_source=qr"
                 class="text-[#8B0000] hover:text-yellow-400 transition text-2xl p-2 hover:scale-110"
               >
                 <i class="fab fa-instagram"></i> Instagram
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/share/15jX1YAUFY/?mibextid=wwXIfr"
                 class="text-[#8B0000] hover:text-blue-400 transition text-2xl p-2 hover:scale-110"
               >
                 <i class="fab fa-facebook"></i> Facebook
               </a>
               <a
-                href="#"
+                href="https://www.tiktok.com/@epatazh_shop?_t=ZM-8txc1yr5Cze&_r=1"
                 class="text-[#8B0000] hover:text-[#ff2b5d] transition text-2xl p-2 hover:scale-110"
               >
                 <i class="fab fa-tiktok"></i> TikTok
@@ -534,9 +574,10 @@
             >
               Додайте відгук
             </h3>
-            <form class="space-y-4 mt-4">
+            <form class="space-y-4 mt-4" id="contact-form">
               <input
                 type="text"
+                id="name"
                 placeholder="Ваше ім’я"
                 required
                 class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#8B0000] outline-none text-black"
@@ -544,12 +585,28 @@
 
               <input
                 type="email"
+                id="email"
                 placeholder="Ваш email"
+                required
+                class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#8B0000] outline-none text-black"
+              />
+              <input
+                type="tel"
+                id="phone"
+                placeholder="Ваш телефон"
+                required
+                class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#8B0000] outline-none text-black"
+              />
+              <input
+                type="text"
+                id="telegram"
+                placeholder="Ваш Telegram"
                 required
                 class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#8B0000] outline-none text-black"
               />
 
               <textarea
+                id="message"
                 rows="3"
                 placeholder="Ваш відгук"
                 required
@@ -628,22 +685,19 @@
       <div class="max-w-6xl mx-auto px-4" data-aos="fade-right">
         <!-- Заголовок та контактна інформація -->
         <h2 class="text-3xl md:text-4xl font-bold mb-6">Контакти</h2>
-        <p class="text-lg md:text-xl mt-2">
-          📞 +380 12 345 67 89 | 📧 info@epatazh.com
-        </p>
         <p class="text-lg md:text-xl mt-2">📍 Доставка по Україні</p>
 
         <!-- Соціальні мережі -->
         <div class="mt-8 flex justify-center gap-6 sm:gap-8">
           <a
-            href="#"
+            href="https://www.instagram.com/epat.ash?igsh=Z3VkMjNlMnQwM3V2&utm_source=qr"
             class="text-white hover:text-yellow-400 transition-colors text-2xl p-2 hover:scale-110 transform duration-300"
             aria-label="Instagram"
           >
             <i class="fab fa-instagram"></i> Instagram
           </a>
           <a
-            href="#"
+            href="https://www.facebook.com/share/15jX1YAUFY/?mibextid=wwXIfr"
             class="text-white hover:text-blue-400 transition-colors text-2xl p-2 hover:scale-110 transform duration-300"
             aria-label="Facebook"
           >
@@ -697,23 +751,7 @@
       </div>
     </footer>
 
-    <!-- Підключення шрифтів -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Підключення шрифтів -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Підключення шрифтів -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
+    <script src=" https://cdn.jsdelivr.net/npm/axios@1.7.9/dist/axios.min.js "></script>
 
     <!-- Ініціалізація AOS -->
     <script>
@@ -868,5 +906,55 @@
         }
       }
     </script> -->
+
+    <script>
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const token = "7548360440:AAECjzqUft3p4ALd38lmhv9exeOLYhsj4UQ";
+          const chatId = "1858900238";
+
+          const name = document.querySelector("#name").value.trim();
+          const email = document.querySelector("#email").value.trim();
+          const phone = document.querySelector("#phone").value.trim();
+          const telegram = document.querySelector("#telegram").value.trim();
+          const message = document.querySelector("#message").value.trim();
+
+          if (!name || !email || !phone || !telegram || !message) {
+            alert("Будь ласка, заповніть всі поля!");
+            return;
+          }
+
+          const telegramMessage = `🔔 Нова заявка! 🔔\n👤 Ім'я: ${name}\n📧 Email: ${email}\n📞 Телефон: ${phone}\n🗨 Telegram: ${telegram}\n❓ Повідомлення: ${message}`;
+
+          axios
+            .post(
+              `https://api.telegram.org/bot${token}/sendMessage`,
+              {
+                chat_id: chatId,
+                text: telegramMessage,
+              },
+              {
+                headers: { "Content-Type": "application/json" },
+              }
+            )
+            .then((response) => {
+              alert(
+                "Дякуємо за заявку! Ми зв'яжемося з вами найближчим часом."
+              );
+              console.log(response);
+              document.getElementById("contact-form").reset();
+            })
+            .catch((error) => {
+              console.error(
+                "Помилка запиту:",
+                error.response?.data || error.message
+              );
+              alert("Вибачте, сталася помилка. Спробуйте ще раз.");
+            });
+        });
+    </script>
   </body>
 </html>
