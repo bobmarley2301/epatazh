@@ -9,48 +9,6 @@
       name="google-site-verification"
       content="uz4tQzg1yUfXrtJu2dNS8V1ikQvM36S2QlMdSHOa1Qw"
     />
-
-    <meta
-      name="description"
-      content="Купити жіночу білизну в Калуші. Великий вибір стильних та якісних комплектів. Доставка по Україні. Замовляйте зараз!"
-    />
-
-    <!-- Підключення Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Підключення бібліотеки для плавного скролінгу -->
-    <script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.polyfills.min.js"></script>
-
-    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico" />
-
-    <!-- Підключення Font Awesome 6 через CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-
-    <!-- Swiper CSS -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
-
-    <!-- Підключення анімацій AOS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
-      rel="stylesheet"
-    />
-
-    <!-- Підключення шрифтів -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Підключення стилів -->
-    <link rel="stylesheet" href="styles.css" />
-
-    <!-- Мета-теги для SEO -->
     <meta
       name="description"
       content="Epatazh - магазин жіночої білизни в Калуші. Пропонуємо якісну, стильну та елегантну білизну для кожної жінки. 20 років досвіду в індустрії моди."
@@ -60,6 +18,42 @@
       content="магазин білизни, жіноча білизна, естетика, стиль, комфорт, якість білизни, магазин Калуш, вишуканість білизни, елегантність, індивідуальність, сучасні тренди, Калуш, Івано-Франківськ, Львів, Україна"
     />
     <meta name="robots" content="index, follow" />
+
+    <!-- Підключення критичних ресурсів -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap"
+      as="style"
+    />
+    <link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon" />
+
+    <!-- Підключення важливих бібліотек -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Відстрочене завантаження для некритичних скриптів -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.polyfills.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"
+      defer
+    ></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
 
     <style>
       body {
@@ -181,13 +175,22 @@
       <nav
         class="max-w-6xl mx-auto px-2 py-2 flex justify-between items-center"
       >
-        <!-- Логотип -->
+        
         <a href="#" class="flex-shrink-0">
           <img
             src="assets/logo.webp"
             alt="Epatazh Logo"
             class="h-20 w-auto md:h-24 lg:h-26"
             style="padding-top: 8px"
+            width="160"
+            Встановіть
+            бажану
+            ширину
+            height="40"
+            loading="lazy"
+          />
+          
+          
           />
         </a>
 
